@@ -10,6 +10,7 @@ public class Sheep implements Cloneable{
     private String name;
     private int age;
     private String color;
+    private Sheep friend;
 
     public Sheep(String name, int age, String color) {
         this.name = name;
@@ -41,6 +42,14 @@ public class Sheep implements Cloneable{
         this.color = color;
     }
 
+    public Sheep getFriend() {
+        return friend;
+    }
+
+    public void setFriend(Sheep friend) {
+        this.friend = friend;
+    }
+
     @Override
     public String toString() {
         return "Sheep{" +
@@ -51,7 +60,7 @@ public class Sheep implements Cloneable{
     }
 
     @Override
-    protected Object clone() {
+    protected Sheep clone() {
         Sheep sheep = null;
         try {
             sheep = (Sheep) super.clone();
