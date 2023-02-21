@@ -1,7 +1,5 @@
 package com.jolyoulu.proxy.staticproxy;
 
-import com.sun.deploy.security.MSCryptoDSASignature;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 /**
  * @Author: JolyouLu
