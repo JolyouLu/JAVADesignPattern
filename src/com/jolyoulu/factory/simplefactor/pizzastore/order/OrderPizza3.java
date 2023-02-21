@@ -1,0 +1,49 @@
+package com.jolyoulu.factory.simplefactor.pizzastore.order;
+
+import com.jolyoulu.factory.simplefactor.pizzastore.pizza.Pizza;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/**
+ * @Author: LZJ
+ * @Date: 2020/10/24 2:18
+ * @Version 1.0
+ * 静态工厂
+ */
+public class OrderPizza3 {
+
+    String orderType = "";
+    Pizza pizza = null;
+
+    //通过构造器传入工厂
+    public OrderPizza3() {
+        do {
+            orderType = getType();
+            pizza = SimpleFactory.creatStaticPizza(orderType);
+            if (pizza != null){
+                pizza.prepare();
+                pizza.bake();
+                pizza.cut();
+                pizza.box();
+            }else {
+                System.out.println("订购披萨失败");
+                break;
+            }
+        }while (true);
+    }
+
+    //从控制台获取订购披萨
+    private String getType(){
+        try {
+            BufferedReader strin = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("输入披萨类型:");
+            String str = strin.readLine();
+            return str;
+        }catch (IOException e){
+            e.printStackTrace();
+            return "";
+        }
+    }
+}
